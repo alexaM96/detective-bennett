@@ -27,6 +27,13 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log($"Startdialogue with { dialogueList.Count} items");
         animator.SetBool("IsOpen", true);
+        var dialogueEntryList = BuildDialogueList(dialogueList);
+        currentSentenceNumerator = dialogueEntryList.GetEnumerator();
+        DisplayNextSentence();
+    }
+
+    private IEnumerable<DialogueEntry> BuildDialogueList(List<Dialogue> dialogueList)
+    {
         var dialogueEntryList = new List<DialogueEntry>();
 
         foreach (Dialogue dialogue in dialogueList)
@@ -56,15 +63,18 @@ public class DialogueManager : MonoBehaviour
                 dialogueEntryList.Add(dialogueEntry);
             }
         }
-        currentSentenceNumerator = dialogueEntryList.GetEnumerator();
-        DisplayNextSentence();
+
+        return dialogueEntryList;
     }
+
     public void StartDialogue(Dialogue dialogue)
     {
         var list = new List<Dialogue>();
         list.Add(dialogue);
         StartDialogue(list);
     }
+
+
 
 
     public void DisplayNextSentence()
