@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    private Queue<DialogueEntry> dialogues;
+    IEnumerator<DialogueEntry> currentSentenceNumerator;
     public Text nameT;
     public Text dialogueT;
     public Image portrait;
@@ -16,11 +16,6 @@ public class DialogueManager : MonoBehaviour
     public Sprite man2;
 
     public Animator animator;
-    void Start()
-    {
-        dialogues = new Queue<DialogueEntry>();
-    }
-
     
     class DialogueEntry
     {
@@ -31,8 +26,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(List<Dialogue> dialogueList)
     {
         Debug.Log($"Startdialogue with { dialogueList.Count} items");
-        dialogues.Clear();
         animator.SetBool("IsOpen", true);
+        var dialogueEntryList = new List<DialogueEntry>();
 
         foreach (Dialogue dialogue in dialogueList)
         {
@@ -58,12 +53,11 @@ public class DialogueManager : MonoBehaviour
                 {
                     dialogueEntry.displayedPortrait = man1;
                 }
-
-                dialogues.Enqueue(dialogueEntry);
+                dialogueEntryList.Add(dialogueEntry);
             }
         }
-
-        DisplaySentence();
+        currentSentenceNumerator = dialogueEntryList.GetEnumerator();
+        DisplayNextSentence();
     }
     public void StartDialogue(Dialogue dialogue)
     {
@@ -73,16 +67,17 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void DisplaySentence()
+    public void DisplayNextSentence()
     {
         Debug.LogError("Displaying next dialog");
-        if (dialogues.Count == 0)
+        bool isValid = currentSentenceNumerator.MoveNext();
+        if (!isValid)
         {
             EndDialogue();
             return;
         }
 
-        var sentence = dialogues.Dequeue();
+        var sentence = currentSentenceNumerator.Current;
         //Debug.Log(sentence);
         //StopAllCoroutines();
         //StartCoroutine(TypeSentence(sentence));
