@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    private Queue<string> dialogues;
+    private Queue<DialogueEntry> dialogues;
     public Text nameT;
     public Text dialogueT;
     public Image portrait;
@@ -18,90 +18,77 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     void Start()
     {
-        dialogues = new Queue<string>();
+        dialogues = new Queue<DialogueEntry>();
     }
 
-    //public void StartDialogue(Dialogue dialogue)
-    //{
-    //    animator.SetBool("IsOpen", true);
-
-    //    nameT.text = dialogue.name;
-    //    if (dialogue.name == "Pani Harris")
-    //    {
-    //        portrait.sprite = lady;
-    //    }
-    //    else if (dialogue.name == "Pan Roberts")
-    //    {
-    //        portrait.sprite = man2;
-    //    }
-    //    else if (dialogue.name == "Detektyw Bennett")
-    //    {
-    //        portrait.sprite = detective;
-    //    }
-    //    else
-    //    {
-    //        portrait.sprite = man1;
-    //    }
-    //    dialogues.Clear();
-
-    //    foreach (string sentence in dialogue.sentences)
-    //    {
-    //        dialogues.Enqueue(sentence);
-    //        //Debug.Log(dialogue.name + sentence);
-    //    }
-
-    //    DisplaySentence();
-
-    //}
+    
+    class DialogueEntry
+    {
+        public string displayName;
+        public Sprite displayedPortrait;
+        public string displayText;
+    }
     public void StartDialogue(List<Dialogue> dialogueList)
     {
+        Debug.Log($"Startdialogue with { dialogueList.Count} items");
+        dialogues.Clear();
         animator.SetBool("IsOpen", true);
 
         foreach (Dialogue dialogue in dialogueList)
         {
-            nameT.text = dialogue.name;
-
-            if (dialogue.name == "Pani Harris")
-            {
-                portrait.sprite = lady;
-            }
-            else if (dialogue.name == "Pan Roberts")
-            {
-                portrait.sprite = man2;
-            }
-            else if (dialogue.name == "Detektyw Bennett")
-            {
-                portrait.sprite = detective;
-            }
-            else
-            {
-                portrait.sprite = man1;
-            }
-            //dialogues.Clear();
-
             foreach (string sentence in dialogue.sentences)
             {
-                dialogues.Enqueue(sentence);
-                Debug.Log(dialogue.name + sentence);
-            }
+                DialogueEntry dialogueEntry = new DialogueEntry();
+                dialogueEntry.displayName = dialogue.name;
+                dialogueEntry.displayText = sentence;
 
-            DisplaySentence();
+                if (dialogue.name == "Pani Harris")
+                {
+                    dialogueEntry.displayedPortrait = lady;
+                }
+                else if (dialogue.name == "Pan Roberts")
+                {
+                    dialogueEntry.displayedPortrait = man2;
+                }
+                else if (dialogue.name == "Detektyw Bennett")
+                {
+                    dialogueEntry.displayedPortrait = detective;
+                }
+                else
+                {
+                    dialogueEntry.displayedPortrait = man1;
+                }
+
+                dialogues.Enqueue(dialogueEntry);
+            }
         }
+
+        DisplaySentence();
     }
+    public void StartDialogue(Dialogue dialogue)
+    {
+        var list = new List<Dialogue>();
+        list.Add(dialogue);
+        StartDialogue(list);
+    }
+
 
     public void DisplaySentence()
     {
+        Debug.LogError("Displaying next dialog");
         if (dialogues.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string sentence = dialogues.Dequeue();
+        var sentence = dialogues.Dequeue();
         //Debug.Log(sentence);
         //StopAllCoroutines();
         //StartCoroutine(TypeSentence(sentence));
-        dialogueT.text = sentence;
+        dialogueT.text = sentence.displayText;
+        portrait.sprite = sentence.displayedPortrait;
+        nameT.text = sentence.displayName;
 
     }
 
