@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Sprite man2;
 
     public Animator animator;
-    
+
     class DialogueEntry
     {
         public string displayName;
@@ -34,7 +34,6 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerable<DialogueEntry> BuildDialogueList(List<Dialogue> dialogueList)
     {
-        var dialogueEntryList = new List<DialogueEntry>();
 
         foreach (Dialogue dialogue in dialogueList)
         {
@@ -60,11 +59,9 @@ public class DialogueManager : MonoBehaviour
                 {
                     dialogueEntry.displayedPortrait = man1;
                 }
-                dialogueEntryList.Add(dialogueEntry);
+                yield return dialogueEntry;
             }
         }
-
-        return dialogueEntryList;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -74,12 +71,8 @@ public class DialogueManager : MonoBehaviour
         StartDialogue(list);
     }
 
-
-
-
     public void DisplayNextSentence()
     {
-        Debug.LogError("Displaying next dialog");
         bool isValid = currentSentenceNumerator.MoveNext();
         if (!isValid)
         {
@@ -88,25 +81,10 @@ public class DialogueManager : MonoBehaviour
         }
 
         var sentence = currentSentenceNumerator.Current;
-        //Debug.Log(sentence);
-        //StopAllCoroutines();
-        //StartCoroutine(TypeSentence(sentence));
         dialogueT.text = sentence.displayText;
         portrait.sprite = sentence.displayedPortrait;
         nameT.text = sentence.displayName;
 
-    }
-
-
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueT.text = "";
-
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueT.text += letter;
-            yield return null;
-        }
     }
 
     public void EndDialogue()

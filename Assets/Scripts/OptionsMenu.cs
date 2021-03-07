@@ -17,18 +17,18 @@ public class OptionsMenu : MonoBehaviour
         resDropdown.ClearOptions();
 
         List<string> resOptions = new List<string>();
-        
 
-        for(int i = 0; i < resolutionList.Length; i++)
+
+        for (int i = 0; i < resolutionList.Length; i++)
         {
             string option = resolutionList[i].width + " x " + resolutionList[i].height;
             resOptions.Add(option);
 
-            if(resolutionList[i].width == Screen.currentResolution.width && resolutionList[i].height == Screen.currentResolution.height)
+            if (resolutionList[i].width == Screen.currentResolution.width && resolutionList[i].height == Screen.currentResolution.height)
             {
                 currResIndex = i;
             }
-            
+
         }
         resDropdown.AddOptions(resOptions);
         resDropdown.value = currResIndex;

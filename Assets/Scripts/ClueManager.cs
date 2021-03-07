@@ -11,8 +11,6 @@ public class ClueManager : MonoBehaviour
     {
         clue.isFound = true;
         Debug.Log("Wskazówka " + clue.name + " została znaleziona");
-        Thread.Sleep(10000);
-        Debug.Log("after sleep");
 
         PlayerPrefs.SetInt(clue.name, 1);
 

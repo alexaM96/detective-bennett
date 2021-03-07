@@ -466,16 +466,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.93333334, g: 0.3647059, b: 0.3647059, a: 1}
+    m_PressedColor: {r: 0.93333334, g: 0.18039216, b: 0.18039216, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -806,6 +806,9 @@ GameObject:
   - component: {fileID: 1142234708}
   - component: {fileID: 1142234710}
   - component: {fileID: 1142234709}
+  - component: {fileID: 1142234712}
+  - component: {fileID: 1142234711}
+  - component: {fileID: 1142234713}
   m_Layer: 5
   m_Name: Man
   m_TagString: Untagged
@@ -869,6 +872,138 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142234707}
   m_CullTransparentMesh: 0
+--- !u!114 &1142234711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142234707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.93333334, g: 0.3647059, b: 0.3647059, a: 1}
+    m_PressedColor: {r: 0.93333334, g: 0.18039216, b: 0.18039216, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1142234709}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1142234712}
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1142234713}
+        m_MethodName: FindClue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1142234712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142234707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc429eac5db0fa4c8c41882908b5f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - name: Detektyw Bennett
+    sentences:
+    - "Dzie\u0144 dobry, Detektyw Bennett. Prowadz\u0119 \u015Bledztwo w sprawie
+      zab\xF3jstwa Anny Smith."
+    - "Czy to Pan jest tym s\u0105siadem, kt\xF3ry wezwa\u0142 policj\u0119 do mieszkania
+      Pani Smith?"
+  - name: "Tajemniczy m\u0119\u017Cczyzna"
+    sentences:
+    - "S\u0105siadem? Tak, tak to ja."
+  - name: Detektyw Bennett
+    sentences:
+    - "Dobrze zna\u0142 Pan Ann\u0119?"
+  - name: "S\u0105siad Anny"
+    sentences:
+    - "W sumie to nie zna\u0142em jej zbyt dobrze."
+    - "By\u0142a tylko moj\u0105 s\u0105siadk\u0105."
+  - name: Detektyw Bennett
+    sentences:
+    - "Co Pan robi\u0142 wczoraj wieczorem?"
+  - name: "S\u0105siad Anny"
+    sentences:
+    - "Hmm... By\u0142em w barze do p\xF3\u017Anej nocy."
+  - name: Detektyw Bennett
+    sentences:
+    - "Czyli ta \"pami\u0105tka\" pod okiem to z baru?"
+  - name: "S\u0105siad Anny"
+    sentences:
+    - To? To nic takiego.
+    - "Uderzy\u0142em si\u0119 drzwiami, taka ze mnie niezdara."
+  - name: Detektyw Bennett
+    sentences:
+    - "W takim razie, je\u015Bli Pana nie by\u0142o w domu, to pewnie nic Pan nie
+      zauwa\u017Cy\u0142?"
+  - name: "S\u0105siad Anny"
+    sentences:
+    - No, niestety.
+  - name: Detektyw Bennett
+    sentences:
+    - "Dzi\u0119kuj\u0119 za rozmow\u0119. By\u0107 mo\u017Ce jeszcze si\u0119 spotkamy."
+--- !u!114 &1142234713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142234707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07364537b17f07642a62e1a94141b2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clue:
+    name: "M\u0119\u017Cczyzna1"
+    isFound: 0
 --- !u!1001 &1159213731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -985,6 +1120,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850104971407785148, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1373550756}
+    - target: {fileID: 5850104971407785148, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0293428969a9a8d49b461b6f5e4c9d4c, type: 3}
@@ -1119,6 +1264,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd719f18f83609428dfbc9676fc70d3, type: 3}
+--- !u!114 &1373550756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2984269247216130670, guid: efd719f18f83609428dfbc9676fc70d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1373550755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2629bd913dd3f4cbab843d9ef3f189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1384386405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1437,7 @@ GameObject:
   - component: {fileID: 1434839664}
   - component: {fileID: 1434839663}
   - component: {fileID: 1434839667}
+  - component: {fileID: 1434839668}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1381,6 +1539,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 627550369}
   fadeTime: 1
+--- !u!114 &1434839668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434839662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb8977271785714bbb8ea5b5393b256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1449514104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

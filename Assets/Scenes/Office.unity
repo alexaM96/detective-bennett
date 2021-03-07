@@ -200,6 +200,8 @@ GameObject:
   - component: {fileID: 45866941}
   - component: {fileID: 45866940}
   - component: {fileID: 45866944}
+  - component: {fileID: 45866945}
+  - component: {fileID: 45866946}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -301,6 +303,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 348348619}
   fadeTime: 1
+--- !u!114 &45866945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45866939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ba117116c565f46aa0188c7700837b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - 
+  btn: {fileID: 2048515121}
+  btnOld: {fileID: 1959234907}
+--- !u!114 &45866946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45866939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb8977271785714bbb8ea5b5393b256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &300535550
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +510,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2002828486944400884, guid: 9ba4489806e6841409ae643ae6557f7b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2002828486944400885, guid: 9ba4489806e6841409ae643ae6557f7b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -587,6 +624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crossfade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002828487019246432, guid: 9ba4489806e6841409ae643ae6557f7b,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba4489806e6841409ae643ae6557f7b, type: 3}
@@ -859,6 +901,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd719f18f83609428dfbc9676fc70d3, type: 3}
+--- !u!114 &862310812 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2984269247216130670, guid: efd719f18f83609428dfbc9676fc70d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 862310811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2629bd913dd3f4cbab843d9ef3f189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917824802
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +925,8 @@ GameObject:
   - component: {fileID: 917824805}
   - component: {fileID: 917824804}
   - component: {fileID: 917824806}
+  - component: {fileID: 917824807}
+  - component: {fileID: 917824808}
   m_Layer: 5
   m_Name: Man
   m_TagString: Untagged
@@ -947,16 +1003,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.9339623, g: 0.36565503, b: 0.36565503, a: 1}
+    m_PressedColor: {r: 0.9339623, g: 0.18062477, b: 0.18062477, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -976,7 +1032,104 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 917824804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 917824808}
+        m_MethodName: FindClue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 917824807}
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &917824807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917824802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc429eac5db0fa4c8c41882908b5f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - name: Detektyw Bennett
+    sentences:
+    - Witam, Pan czeka na mnie?
+  - name: Pan Roberts
+    sentences:
+    - "Tak, nazywam si\u0119 Peter Roberts, jestem s\u0105siadem Anny Smith."
+    - "Pani Harris m\xF3wi\u0142a \u017Ce mam si\u0119 do Pana zg\u0142osi\u0107."
+  - name: Detektyw Bennett
+    sentences:
+    - "???, skoro Pan jest s\u0105siadem, to z kim rozmawia\u0142em przed budynkiem?"
+  - name: Pan Roberts
+    sentences:
+    - "Nie mam poj\u0119cia. A jak wygl\u0105da\u0142?"
+  - name: Detektyw Bennett
+    sentences:
+    - "To by\u0142 wysoki m\u0119\u017Cczyzna. Mia\u0142 na sobie garnitur i kapelusz.
+      No i mia\u0142 podbite oko."
+  - name: Pan Roberts
+    sentences:
+    - "Nikogo takiego nie kojarz\u0119, to \u017Caden z s\u0105siad\xF3w."
+  - name: Detektyw Bennett
+    sentences:
+    - "W takim razie to mo\u017Ce by\u0107 morderca..."
+    - "A Pan zauwa\u017Cy\u0142 dzisiaj w nocy co\u015B szczeg\xF3lnego?"
+  - name: Pan Roberts
+    sentences:
+    - Niestety, mam bardzo mocny sen.
+    - "Dopiero dzi\u015B rano, gdy Pani Harris krzycza\u0142a, wyszed\u0142em zobaczy\u0107
+      co si\u0119 dzieje."
+    - "Gdy dowiedzia\u0142em si\u0119 co si\u0119 sta\u0142o, zawiadomi\u0142em policj\u0119."
+  - name: Detektyw Bennett
+    sentences:
+    - Czy pali Pan papierosy?
+  - name: Pan Roberts
+    sentences:
+    - "Nie. Nie mam \u017Cadnych na\u0142og\xF3w."
+  - name: Detektyw Bennett
+    sentences:
+    - "A ta \"\u015Bliwa\" pod okiem to od czego?"
+  - name: Pan Roberts
+    sentences:
+    - "Par\u0119 dni temu pok\u0142\xF3ci\u0142em si\u0119 z koleg\u0105 i dosz\u0142o
+      do r\u0119koczyn\xF3w. St\u0105d efekt."
+  - name: Detektyw Bennett
+    sentences:
+    - "Dzi\u0119kuj\u0119, gdybym mia\u0142 jeszcze jakie\u015B pytania, skontaktuj\u0119
+      si\u0119 z Panem. Do widzenia."
+--- !u!114 &917824808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917824802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07364537b17f07642a62e1a94141b2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clue:
+    name: "M\u0119\u017Cczyzna2"
+    isFound: 0
 --- !u!1 &922665619
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1141,7 @@ GameObject:
   - component: {fileID: 922665620}
   - component: {fileID: 922665622}
   - component: {fileID: 922665621}
+  - component: {fileID: 922665623}
   m_Layer: 5
   m_Name: Board
   m_TagString: Untagged
@@ -1051,6 +1205,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922665619}
   m_CullTransparentMesh: 0
+--- !u!114 &922665623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922665619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.93333334, g: 0.3647059, b: 0.3647059, a: 1}
+    m_PressedColor: {r: 0.93333334, g: 0.18039216, b: 0.18039216, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 922665621}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 45866945}
+        m_MethodName: NextRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &946214192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,6 +1885,8 @@ GameObject:
   - component: {fileID: 1406454657}
   - component: {fileID: 1406454656}
   - component: {fileID: 1406454658}
+  - component: {fileID: 1406454660}
+  - component: {fileID: 1406454659}
   m_Layer: 5
   m_Name: Files
   m_TagString: Untagged
@@ -1753,16 +1963,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.93333334, g: 0.3647059, b: 0.3647059, a: 1}
+    m_PressedColor: {r: 0.93333334, g: 0.18039216, b: 0.18039216, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1782,7 +1992,65 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1406454656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406454660}
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1406454659}
+        m_MethodName: FindClue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1406454659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406454654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07364537b17f07642a62e1a94141b2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clue:
+    name: Podsumowanie
+    isFound: 0
+--- !u!114 &1406454660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406454654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc429eac5db0fa4c8c41882908b5f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - name: Detektyw Bennett
+    sentences:
+    - 'Podsumujmy wszystkie poszlaki:'
+    - "Zakrwawione \u015Blady but\xF3w wskazuj\u0105 \u017Ce morderc\u0105 by\u0142
+      m\u0119\u017Cczyzna."
+    - "Niedopa\u0142ek papierosa sugeruje, \u017Ce sprawca by\u0142 osob\u0105 pal\u0105c\u0105."
+    - "\u015Alady na r\u0119kach ofiary wskazuj\u0105 \u017Ce si\u0119 broni\u0142a.
+      Morderca mo\u017Ce mie\u0107 siniaki."
 --- !u!1 &1567268862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,10 +2237,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5850104969794022165, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5850104969794022166, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
         type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850104971407785148, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 862310812}
+    - target: {fileID: 5850104971407785148, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0293428969a9a8d49b461b6f5e4c9d4c, type: 3}
@@ -2018,3 +2301,154 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1959234902}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1959234907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5850104971407785148, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959234902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1959234908 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5850104970323448049, guid: 0293428969a9a8d49b461b6f5e4c9d4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959234902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2048515117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048515118}
+  - component: {fileID: 2048515120}
+  - component: {fileID: 2048515119}
+  - component: {fileID: 2048515121}
+  m_Layer: 5
+  m_Name: Continue (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2048515118
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048515117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1959234908}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 342, y: -58.512}
+  m_SizeDelta: {x: 109.99213, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2048515119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048515117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: df3c4360413e59a419bfa7970c05799f, type: 3}
+    m_FontSize: 22
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: DALEJ >
+--- !u!222 &2048515120
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048515117}
+  m_CullTransparentMesh: 0
+--- !u!114 &2048515121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048515117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9339623, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0.72156864, g: 0.14509805, b: 0.14901961, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2048515119}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 862310812}
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
