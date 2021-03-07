@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Clue
 {
+    public Sprite image;
     public string name;
     public bool isFound;
 }

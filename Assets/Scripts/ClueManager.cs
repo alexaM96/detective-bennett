@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ClueManager : MonoBehaviour
 {
+    public bool[] isFull;
+    public GameObject[] slots;
 
     public void PickClue(Clue clue)
     {
