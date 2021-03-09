@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class ClueManager : MonoBehaviour
 {
-    public bool[] isFull;
-    public GameObject[] slots;
-
+    public InventorySlot[] slots;
     public void PickClue(Clue clue)
     {
         clue.isFound = true;
@@ -16,5 +14,12 @@ public class ClueManager : MonoBehaviour
 
         PlayerPrefs.SetInt(clue.name, 1);
 
+        foreach (var slot in slots)
+        {
+            if(slot.name == clue.name)
+            {
+                slot.image.SetActive(true);
+            }
+        }
     }
 }
